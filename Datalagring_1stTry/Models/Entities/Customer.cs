@@ -20,4 +20,7 @@ public partial class Customer
     public string PostalCode { get; set; } = null!;
 
     public string City { get; set; } = null!;
+
+    public int AddressId { get; set; }
+    
 }

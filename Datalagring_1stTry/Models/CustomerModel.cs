@@ -14,6 +14,10 @@ namespace Datalagring_1stTry.Models
 
         public string? PhoneNumber { get; set; }
 
-        public virtual Address Address { get; set; } = null!;
+        public string StreetName { get; set; } = null!;
+
+        public string PostalCode { get; set; } = null!;
+
+        public string City { get; set; } = null!;
     }
 }
