@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datalagring_1stTry", "Datalagring_1stTry\Datalagring_1stTry.csproj", "{4D2AB02A-63D9-4EF6-9C6E-5F45C08E78CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D2AB02A-63D9-4EF6-9C6E-5F45C08E78CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D2AB02A-63D9-4EF6-9C6E-5F45C08E78CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D2AB02A-63D9-4EF6-9C6E-5F45C08E78CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D2AB02A-63D9-4EF6-9C6E-5F45C08E78CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83C52B71-A188-4A9D-A9E7-9B944B9784BD}
+	EndGlobalSection
+EndGlobal
