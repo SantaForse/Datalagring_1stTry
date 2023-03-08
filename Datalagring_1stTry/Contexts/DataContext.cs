@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Datalagring_1stTry.Models.Entitites;
+using Datalagring_1stTry.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Datalagring_1stTry.Contexts;
@@ -21,6 +21,7 @@ public partial class DataContext : DbContext
     public virtual DbSet<Customer> Customers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jespe\\Desktop\\Santa_Datalagring\\Datalagring_1stTry\\Datalagring_1stTry\\Contexts\\sql_db.mdf;Integrated Security=True;Connect Timeout=30");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Datalagring_1stTry.Models.Entitites;
+namespace Datalagring_1stTry.Models.Entities;
 
 public partial class Address
 {
