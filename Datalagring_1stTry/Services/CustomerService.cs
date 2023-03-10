@@ -10,7 +10,32 @@ namespace Datalagring_1stTry.Services
         private static DataContext _context = new DataContext();
 
         public static async Task SaveAsync(CustomerModel model)
-            
+        {
+            var _customer = new Customer
+            {
+                Id = Guid.NewGuid(),
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+            };
+
+            var _address = await _context.Addresses.FirstOrDefaultAsync(x => x.StreetName == model.StreetName && x.PostalCode == model.PostalCode && x.City == model.City);
+            if (_address != null)
+                _customer.AddressId = _address.Id;
+            else
+                _customer.Address = new Address
+                {
+                    StreetName = model.StreetName,
+                    PostalCode = model.PostalCode,
+                    City = model.City
+                };
+
+            _context.Add(_customer);
+            await _context.SaveChangesAsync();
+        }
+
+
         public static async Task<IEnumerable<CustomerModel>> GetAllAsync()
         {
             var _customers = new List<CustomerModel>();
@@ -31,6 +56,9 @@ namespace Datalagring_1stTry.Services
             return _customers;
         }
 
+
+
+
         public static async Task<CustomerModel> GetAsync(string email)
         {
             var _customer = await _context.Customers.Include(x => x.Address).FirstOrDefaultAsync(x => x.Email == email);
@@ -50,6 +78,8 @@ namespace Datalagring_1stTry.Services
             else
                 return null!;
         }
+
+
 
         public static async Task UpdateAsync(CustomerModel model)
         {
@@ -72,12 +102,10 @@ namespace Datalagring_1stTry.Services
 
                         _context.Add(address);
                         await _context.SaveChangesAsync();
-
-                        _customer.AddressId = _address.Id;
+                        _customer.AddressId = address.Id;
                     }
-                        
-                }
 
+                }
 
                 if (!string.IsNullOrEmpty(model.FirstName))
                     _customer.FirstName = model.FirstName;
@@ -91,12 +119,12 @@ namespace Datalagring_1stTry.Services
                 if (!string.IsNullOrEmpty(model.PhoneNumber))
                     _customer.PhoneNumber = model.PhoneNumber;
 
-
                 _context.Update(_customer);
                 await _context.SaveChangesAsync();
 
             }
         }
+
 
         public static async Task DeleteAsync(string email)
         {
@@ -106,29 +134,6 @@ namespace Datalagring_1stTry.Services
                 _context.Remove(customer);
                 await _context.SaveChangesAsync();
             }
-        }
-        {
-            var _customer = new Customer
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-            };
-
-            var _address = await _context.Addresses.FirstOrDefaultAsync(x => x.StreetName == model.StreetName && x.PostalCode == model.PostalCode && x.City == model.City);
-            if (_address != null)
-                _customer.AddressId = _address.Id;
-            else
-                _customer.Address = new Address
-                {
-                    StreetName = model.StreetName,
-                    PostalCode = model.PostalCode,
-                    City = model.City
-                };
-
-            _context.Add(_customer);
-            await _context.SaveChangesAsync();
         }
     }
 }

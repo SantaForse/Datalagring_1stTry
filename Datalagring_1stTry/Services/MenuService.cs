@@ -1,7 +1,8 @@
-﻿using Datalagring_1stTry.Models;
-using Datalagring_1stTry.Models.Entities;
+﻿
+using Datalagring_1stTry.Models;
+using Datalagring_1stTry.Services;
 
-namespace _01_EFC.Services
+namespace _01_EFC_DBFIRST.Services
 {
     internal class MenuService
     {
@@ -9,25 +10,25 @@ namespace _01_EFC.Services
         {
             var customer = new CustomerModel();
 
-            Console.Write("Name: ");
+            Console.Write("Förnamn: ");
             customer.FirstName = Console.ReadLine() ?? "";
 
-            Console.Write("Surname: ");
+            Console.Write("Efternamn: ");
             customer.LastName = Console.ReadLine() ?? "";
 
-            Console.Write("E-mail: ");
+            Console.Write("E-postadress: ");
             customer.Email = Console.ReadLine() ?? "";
 
-            Console.Write("Phone number: ");
+            Console.Write("Telefonnummer: ");
             customer.PhoneNumber = Console.ReadLine() ?? "";
 
-            Console.Write("Address: ");
+            Console.Write("Gatuadress: ");
             customer.StreetName = Console.ReadLine() ?? "";
 
-            Console.Write("Postal code: ");
+            Console.Write("Postnummer: ");
             customer.PostalCode = Console.ReadLine() ?? "";
 
-            Console.Write("City: ");
+            Console.Write("Stad: ");
             customer.City = Console.ReadLine() ?? "";
 
 

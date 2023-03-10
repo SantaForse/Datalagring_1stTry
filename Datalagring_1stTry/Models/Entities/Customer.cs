@@ -15,12 +15,8 @@ public partial class Customer
 
     public string? PhoneNumber { get; set; }
 
-    public string StreetName { get; set; } = null!;
-
-    public string PostalCode { get; set; } = null!;
-
-    public string City { get; set; } = null!;
-
     public int AddressId { get; set; }
-    
+
+    public virtual Address Address { get; set; } = null!;
+
 }
